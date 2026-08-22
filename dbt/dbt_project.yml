@@ -1,0 +1,26 @@
+name: healthcare_claims_intelligence
+version: "1.0.0"
+config-version: 2
+
+profile: healthcare_claims_intelligence
+
+model-paths: ["models"]
+seed-paths: ["seeds"]
+snapshot-paths: ["snapshots"]
+test-paths: ["tests"]
+macro-paths: ["macros"]
+
+clean-targets:
+  - "target"
+  - "dbt_packages"
+
+models:
+  healthcare_claims_intelligence:
+    staging:
+      +materialized: view
+
+    intermediate:
+      +materialized: view
+
+    marts:
+      +materialized: table

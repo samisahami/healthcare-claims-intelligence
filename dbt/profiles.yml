@@ -1,0 +1,13 @@
+healthcare_claims_intelligence:
+  target: dev
+
+  outputs:
+    dev:
+      type: postgres
+      host: postgres
+      port: 5432
+      user: healthcare
+      password: healthcare
+      dbname: healthcare_analytics
+      schema: analytics
+      threads: 4
