@@ -30,6 +30,37 @@ services:
     depends_on:
       postgres:
         condition: service_healthy
+    
+  synthea:
+    build:
+      context: .
+      dockerfile: Dockerfile.synthea
+    
+    volumes:
+      - ./data/raw/synthea:/output
+      - ./synthea.properties:/opt/synthea/synthea-local.properties:ro
+
+  ingestion:
+    build:
+      context: .
+      dockerfile: Dockerfile.ingestion
+
+    working_dir: /usr/app
+
+    volumes:
+      - ./ingestion:/usr/app/ingestion:ro
+      - ./data/raw/synthea:/usr/app/data/raw/synthea:ro
+    
+    environment: 
+      POSTGRES_HOST: postgres
+      POSTGRES_PORT: 5432
+      POSTGRES_DB: healthcare_analytics
+      POSTGRES_USER: healthcare
+      POSTGRES_PASSSWORD: healthcare
+
+    depends_on: 
+      postgres:
+        condition: service_healthy
 
 volumes:
   postgres_data:
