@@ -1,0 +1,49 @@
+version: 2
+
+sources:
+  - name: synthea
+    description: >
+      Raw Synthea healthcare data loaded into PostgreSQL.
+      Source tables preserve the structure and values of the
+      generated CSV exports.
+
+    database: healthcare_analytics
+    schema: raw
+
+    tables:
+      - name: patients
+        description: >
+          Synthetic patient demographic records.
+          Grain: one row per patient.
+        columns:
+          - name: Id 
+            quote: True
+            description: Unique identifier for patient.
+            data_tests: 
+              - not_null
+              - unique
+
+      - name: claims
+        description: >
+          Synthetic healthcare claim header records.
+          Grain: one row per claim.
+        columns:
+          - name: Id 
+            quote: True
+            description: Unique identifier for a claim.
+            data_tests:
+              - not_null
+              - unique
+
+      - name: claims_transactions
+        description: >
+          Claim-level financial transaction records including
+          charges, payments, and transfers.
+          Grain: one row per claim transaction.
+        columns:
+          - name: ID
+            quote: True
+            description: Unique identifier for a claim transaction. 
+            data_tests:
+              - not_null
+              - unique
