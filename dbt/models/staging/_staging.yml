@@ -12,3 +12,25 @@ models:
         data_tests:
           - not_null
           - unique
+
+  - name: stg_synthea__claims
+    description: Cleaned and typed Synthea claims records.
+    
+    columns:
+
+    - name: claim_id
+      description: Unique identifier for a claim. 
+      data_tests:
+        - not_null
+        - unique
+
+  - name: stg_synthea_claims__transactions
+    description: Cleaned and typed Synthea claims transaction records.
+
+    columns:
+
+    - name: claim_transaction_id
+      description: Unique identifier for a claim transaction.
+      data_tests:
+        - not_null
+        - unique
