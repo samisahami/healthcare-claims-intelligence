@@ -1,0 +1,14 @@
+version: 2
+
+models:
+
+  - name: fct_claims
+    description: Analytics-ready claim fact table at one row per claim.
+
+    columns:
+
+      - name: claim_id
+        description: Unique identifier for a claim.
+        data_tests:
+          - not_null
+          - unique

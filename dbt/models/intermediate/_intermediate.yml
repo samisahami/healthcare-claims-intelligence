@@ -1,0 +1,27 @@
+version: 2
+
+models:
+
+  - name: int_claim_transactions_classified
+    description: Business-ready classification of claim transaction records.
+
+    columns:
+
+      - name: claim_transaction_id
+        description: Unique identifier for a claim transaction.
+        data_tests:
+          - not_null
+          - unique
+
+  - name: int_claim_financials
+    description: Claim-level financial aggregate derived from classified claim_transactions.
+
+    columns:
+
+      - name: claim_id
+        description: Unique identifier for a claim.
+        data_tests:
+          - not_null
+          - unique
+
+      
