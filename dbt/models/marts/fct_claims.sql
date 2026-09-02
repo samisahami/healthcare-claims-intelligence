@@ -1,7 +1,21 @@
+{{ config(
+    materialized='incremental',
+    unique_key='claim_id'
+) }}
+
 with claims as (
 
     select *
     from {{ ref('stg_synthea__claims') }}
+
+    {% if is_incremental() %}
+
+    where service_date >= (
+        select max(service_date) - interval '30 days'
+        from {{ this }}
+    )
+
+    {% endif %}
 
 ),
 
@@ -25,7 +39,6 @@ final as (
         c.status_1,
         c.status_2,
         c.status_p,
-
         f.total_charge_amount,
         f.total_payment_amount,
         f.total_transfer_in_amount,
@@ -36,7 +49,6 @@ final as (
 
     left join financials f
         on c.claim_id = f.claim_id
-
 )
 
 select *

@@ -24,7 +24,7 @@ models:
         - not_null
         - unique
 
-  - name: stg_synthea_claims__transactions
+  - name: stg_synthea__claims_transactions
     description: Cleaned and typed Synthea claims transaction records.
 
     columns:

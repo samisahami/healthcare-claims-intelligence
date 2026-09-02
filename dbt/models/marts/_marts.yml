@@ -12,3 +12,34 @@ models:
         data_tests:
           - not_null
           - unique
+
+  - name: fct_member_month
+    description: Analytics-ready member eligibility fact table at one row per patient per coverage month.
+
+    columns:
+
+      - name: patient_id
+        description: Unique identifier for a patient.
+        data_tests:
+          - not_null
+
+      - name: coverage_month
+        description: Coverage month for the patient.
+        data_tests:
+          - not_null
+
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments:
+          combination_of_columns:
+            - patient_id
+            - coverage_month
+  - name: fct_monthly_claim_metrics
+    description: Monthly healthcare claims and eligibility metrics at one row per coverage month.
+
+    columns:
+      - name: coverage_month
+        description: coverage_month
+        data_tests:
+          - not_null
+          - unique

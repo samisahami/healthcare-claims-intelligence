@@ -15,11 +15,12 @@ sources:
         description: >
           Synthetic patient demographic records.
           Grain: one row per patient.
+
         columns:
-          - name: Id 
-            quote: True
-            description: Unique identifier for patient.
-            data_tests: 
+          - name: Id
+            quote: true
+            description: Unique identifier for a patient.
+            data_tests:
               - not_null
               - unique
 
@@ -27,9 +28,10 @@ sources:
         description: >
           Synthetic healthcare claim header records.
           Grain: one row per claim.
+
         columns:
-          - name: Id 
-            quote: True
+          - name: Id
+            quote: true
             description: Unique identifier for a claim.
             data_tests:
               - not_null
@@ -40,10 +42,35 @@ sources:
           Claim-level financial transaction records including
           charges, payments, and transfers.
           Grain: one row per claim transaction.
+
         columns:
           - name: ID
-            quote: True
-            description: Unique identifier for a claim transaction. 
+            quote: true
+            description: Unique identifier for a claim transaction.
             data_tests:
               - not_null
               - unique
+
+      - name: payer_transitions
+        description: >
+          Synthetic patient payer coverage transition records.
+          Grain: one row per patient coverage span.
+
+        columns:
+          - name: PATIENT
+            quote: true
+            description: Patient identifier associated with the coverage span.
+            data_tests:
+              - not_null
+
+          - name: START_DATE
+            quote: true
+            description: Coverage span start date.
+            data_tests:
+              - not_null
+
+          - name: END_DATE
+            quote: true
+            description: Coverage span end date.
+            data_tests:
+              - not_null
