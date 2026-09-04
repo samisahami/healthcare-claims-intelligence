@@ -37,7 +37,7 @@ services:
       dockerfile: Dockerfile.synthea
 
     volumes:
-      - ./data/raw/synthea:/output
+      - ./data/raw/synthea:/opt/synthea/output
       - ./synthea.properties:/opt/synthea/synthea-local.properties:ro
 
   ingestion:
