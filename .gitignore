@@ -18,3 +18,7 @@ venv/
 
 # Data
 data/raw
+
+# Airflow runtime files
+
+airflow/logs/
