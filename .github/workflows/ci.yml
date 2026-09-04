@@ -36,6 +36,11 @@ jobs:
       - name: Generate Synthea data
         run: docker compose run --rm synthea
 
+      - name: Inspect generated synthea files
+        run: |
+          echo "Generated files:"
+          find data/raw/synthea -maxdepth 3 -type f | head -50
+
       # Load raw Synthea CSV files into PostgreSQL
       - name: Ingest raw data
         run: docker compose run --rm ingestion
@@ -61,3 +66,5 @@ jobs:
           POSTGRES_USER: healthcare
           POSTGRES_PASSWORD: healthcare
         run: pytest integration_tests/test_pipeline.py -v
+
+      
