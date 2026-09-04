@@ -37,8 +37,12 @@ services:
       dockerfile: Dockerfile.synthea
 
     volumes:
-      - ./data/raw/synthea:/opt/synthea/output
+      - ./data/raw/synthea:/output
       - ./synthea.properties:/opt/synthea/synthea-local.properties:ro
+
+    command:
+      - "-c"
+      - "opt/synthea/synthea-local.properties"
 
   ingestion:
     build:
