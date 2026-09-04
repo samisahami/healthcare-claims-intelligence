@@ -1,0 +1,63 @@
+name: Healthcare Analytics CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Pull repository code onto the GitHub runner
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # Build all Docker images used by the pipeline
+      - name: Build Docker images
+        run: docker compose build
+
+      # Start PostgreSQL in the background
+      - name: Start PostgreSQL
+        run: docker compose up -d postgres
+
+      # Wait until PostgreSQL is ready before running pipeline tasks
+      - name: Wait for PostgreSQL
+        run: |
+          until docker compose exec -T postgres pg_isready \
+            -U healthcare \
+            -d healthcare_analytics
+          do
+            echo "Waiting for PostgreSQL..."
+            sleep 2
+          done
+
+      # Generate synthetic healthcare data
+      - name: Generate Synthea data
+        run: docker compose run --rm synthea
+
+      # Load raw Synthea CSV files into PostgreSQL
+      - name: Ingest raw data
+        run: docker compose run --rm ingestion
+
+      # Build dbt models and execute dbt tests
+      - name: Run dbt build
+        run: docker compose run --rm dbt build
+
+      # Capture payer coverage history using dbt snapshots
+      - name: Run dbt snapshot
+        run: docker compose run --rm dbt snapshot
+
+      # Install Python packages required for post-pipeline tests
+      - name: Install integration test dependencies
+        run: pip install pytest psycopg2-binary
+
+      # Validate final analytics tables after the pipeline completes
+      - name: Run integration tests
+        env:
+          POSTGRES_HOST: 127.0.0.1
+          POSTGRES_PORT: 55432
+          POSTGRES_DB: healthcare_analytics
+          POSTGRES_USER: healthcare
+          POSTGRES_PASSWORD: healthcare
+        run: pytest integration_tests/test_pipeline.py -v
