@@ -1,0 +1,44 @@
+[2026-09-04T19:17:22.335+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2026-09-04T19:17:22.350+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: healthcare_analytics.ingest_raw_data manual__2026-09-04T19:15:11.942489+00:00 [queued]>
+[2026-09-04T19:17:22.356+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: healthcare_analytics.ingest_raw_data manual__2026-09-04T19:15:11.942489+00:00 [queued]>
+[2026-09-04T19:17:22.356+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 1
+[2026-09-04T19:17:22.364+0000] {taskinstance.py:2890} INFO - Executing <Task(BashOperator): ingest_raw_data> on 2026-09-04 19:15:11.942489+00:00
+[2026-09-04T19:17:22.368+0000] {standard_task_runner.py:104} INFO - Running: ['airflow', 'tasks', 'run', '***_analytics', 'ingest_raw_data', 'manual__2026-09-04T19:15:11.942489+00:00', '--job-id', '19', '--raw', '--subdir', 'DAGS_FOLDER/***_claims_pipeline.py', '--cfg-path', '/tmp/tmpwtes4lif']
+[2026-09-04T19:17:22.370+0000] {standard_task_runner.py:105} INFO - Job 19: Subtask ingest_raw_data
+[2026-09-04T19:17:22.370+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/airflow/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=429) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-09-04T19:17:22.371+0000] {standard_task_runner.py:72} INFO - Started process 430 to run task
+[2026-09-04T19:17:22.394+0000] {task_command.py:467} INFO - Running <TaskInstance: healthcare_analytics.ingest_raw_data manual__2026-09-04T19:15:11.942489+00:00 [running]> on host 1f9f8f8a2e65
+[2026-09-04T19:17:22.440+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='***_analytics' AIRFLOW_CTX_TASK_ID='ingest_raw_data' AIRFLOW_CTX_EXECUTION_DATE='2026-09-04T19:15:11.942489+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-09-04T19:15:11.942489+00:00'
+[2026-09-04T19:17:22.441+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2026-09-04T19:17:22.452+0000] {subprocess.py:78} INFO - Tmp dir root location: /tmp
+[2026-09-04T19:17:22.453+0000] {subprocess.py:88} INFO - Running command: ['/usr/bin/bash', '-c', 'cd /Users/samisahami/***-claims-intelligence && docker compose run --rm ingestion']
+[2026-09-04T19:17:22.457+0000] {subprocess.py:99} INFO - Output:
+[2026-09-04T19:17:22.560+0000] {subprocess.py:106} INFO -  Container ***_postgres Running
+[2026-09-04T19:17:22.602+0000] {subprocess.py:106} INFO -  Container ***_postgres Waiting
+[2026-09-04T19:17:23.106+0000] {subprocess.py:106} INFO -  Container ***_postgres Healthy
+[2026-09-04T19:17:23.119+0000] {subprocess.py:106} INFO -  Container ***-claims-intelligence-ingestion-run-a0bb9e8a224d Creating
+[2026-09-04T19:17:23.173+0000] {subprocess.py:106} INFO -  Container ***-claims-intelligence-ingestion-run-a0bb9e8a224d Created
+[2026-09-04T19:17:23.807+0000] {subprocess.py:106} INFO - Starting Synthea ingestion
+[2026-09-04T19:17:23.807+0000] {subprocess.py:106} INFO - Batch ID: 05722351-eddb-4198-90b6-685ecb19d42e
+[2026-09-04T19:17:23.808+0000] {subprocess.py:106} INFO - Source directory: data/raw/synthea/csv
+[2026-09-04T19:17:23.808+0000] {subprocess.py:106} INFO - 
+[2026-09-04T19:17:23.808+0000] {subprocess.py:106} INFO - Loaded raw.patients: 10 rows
+[2026-09-04T19:17:23.808+0000] {subprocess.py:106} INFO - Loaded raw.encounters: 566 rows
+[2026-09-04T19:17:23.809+0000] {subprocess.py:106} INFO - Loaded raw.claims: 900 rows
+[2026-09-04T19:17:23.809+0000] {subprocess.py:106} INFO - Loaded raw.claims_transactions: 8,438 rows
+[2026-09-04T19:17:23.809+0000] {subprocess.py:106} INFO - Loaded raw.conditions: 507 rows
+[2026-09-04T19:17:23.811+0000] {subprocess.py:106} INFO - Loaded raw.procedures: 2,336 rows
+[2026-09-04T19:17:23.811+0000] {subprocess.py:106} INFO - Loaded raw.providers: 40 rows
+[2026-09-04T19:17:23.811+0000] {subprocess.py:106} INFO - Loaded raw.organizations: 40 rows
+[2026-09-04T19:17:23.811+0000] {subprocess.py:106} INFO - Loaded raw.payers: 10 rows
+[2026-09-04T19:17:23.812+0000] {subprocess.py:106} INFO - Loaded raw.payer_transitions: 347 rows
+[2026-09-04T19:17:23.812+0000] {subprocess.py:106} INFO - 
+[2026-09-04T19:17:23.812+0000] {subprocess.py:106} INFO - Synthea ingestion complete
+[2026-09-04T19:17:23.812+0000] {subprocess.py:106} INFO - Files loaded: 10
+[2026-09-04T19:17:23.812+0000] {subprocess.py:106} INFO - Total rows loaded: 13,194
+[2026-09-04T19:17:23.957+0000] {subprocess.py:110} INFO - Command exited with return code 0
+[2026-09-04T19:17:23.981+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2026-09-04T19:17:23.981+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=***_analytics, task_id=ingest_raw_data, run_id=manual__2026-09-04T19:15:11.942489+00:00, execution_date=20260904T191511, start_date=20260904T191722, end_date=20260904T191723
+[2026-09-04T19:17:24.045+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2026-09-04T19:17:24.065+0000] {taskinstance.py:3901} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2026-09-04T19:17:24.067+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

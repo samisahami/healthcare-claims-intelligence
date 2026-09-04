@@ -1,0 +1,383 @@
+[2026-09-04T19:15:12.227+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2026-09-04T19:15:12.234+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: healthcare_analytics.generate_synthea manual__2026-09-04T19:15:11.942489+00:00 [queued]>
+[2026-09-04T19:15:12.237+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: healthcare_analytics.generate_synthea manual__2026-09-04T19:15:11.942489+00:00 [queued]>
+[2026-09-04T19:15:12.237+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 1
+[2026-09-04T19:15:12.241+0000] {taskinstance.py:2890} INFO - Executing <Task(BashOperator): generate_synthea> on 2026-09-04 19:15:11.942489+00:00
+[2026-09-04T19:15:12.245+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/airflow/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=335) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-09-04T19:15:12.245+0000] {standard_task_runner.py:104} INFO - Running: ['airflow', 'tasks', 'run', '***_analytics', 'generate_synthea', 'manual__2026-09-04T19:15:11.942489+00:00', '--job-id', '17', '--raw', '--subdir', 'DAGS_FOLDER/***_claims_pipeline.py', '--cfg-path', '/tmp/tmp6uwovt9c']
+[2026-09-04T19:15:12.246+0000] {standard_task_runner.py:105} INFO - Job 17: Subtask generate_synthea
+[2026-09-04T19:15:12.246+0000] {standard_task_runner.py:72} INFO - Started process 336 to run task
+[2026-09-04T19:15:12.266+0000] {task_command.py:467} INFO - Running <TaskInstance: healthcare_analytics.generate_synthea manual__2026-09-04T19:15:11.942489+00:00 [running]> on host 1f9f8f8a2e65
+[2026-09-04T19:15:12.295+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='***_analytics' AIRFLOW_CTX_TASK_ID='generate_synthea' AIRFLOW_CTX_EXECUTION_DATE='2026-09-04T19:15:11.942489+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-09-04T19:15:11.942489+00:00'
+[2026-09-04T19:15:12.296+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2026-09-04T19:15:12.302+0000] {subprocess.py:78} INFO - Tmp dir root location: /tmp
+[2026-09-04T19:15:12.303+0000] {subprocess.py:88} INFO - Running command: ['/usr/bin/bash', '-c', 'cd /Users/samisahami/***-claims-intelligence && docker compose run --rm synthea']
+[2026-09-04T19:15:12.306+0000] {subprocess.py:99} INFO - Output:
+[2026-09-04T19:15:12.393+0000] {subprocess.py:106} INFO -  Container ***-claims-intelligence-synthea-run-62fba0740b4f Creating
+[2026-09-04T19:15:12.418+0000] {subprocess.py:106} INFO -  Container ***-claims-intelligence-synthea-run-62fba0740b4f Created
+[2026-09-04T19:15:12.568+0000] {subprocess.py:106} INFO - Downloading https://services.gradle.org/distributions/gradle-9.2.1-bin.zip
+[2026-09-04T19:16:18.990+0000] {subprocess.py:106} INFO - ............10%.............20%.............30%.............40%.............50%.............60%.............70%.............80%.............90%.............100%
+[2026-09-04T19:16:19.791+0000] {subprocess.py:106} INFO - 
+[2026-09-04T19:16:19.791+0000] {subprocess.py:106} INFO - Welcome to Gradle 9.2.1!
+[2026-09-04T19:16:19.792+0000] {subprocess.py:106} INFO - 
+[2026-09-04T19:16:19.792+0000] {subprocess.py:106} INFO - Here are the highlights of this release:
+[2026-09-04T19:16:19.792+0000] {subprocess.py:106} INFO -  - Windows ARM support
+[2026-09-04T19:16:19.792+0000] {subprocess.py:106} INFO -  - Improved publishing APIs
+[2026-09-04T19:16:19.792+0000] {subprocess.py:106} INFO -  - Better guidance for dependency verification failures
+[2026-09-04T19:16:19.794+0000] {subprocess.py:106} INFO - 
+[2026-09-04T19:16:19.794+0000] {subprocess.py:106} INFO - For more details see https://docs.gradle.org/9.2.1/release-notes.html
+[2026-09-04T19:16:19.795+0000] {subprocess.py:106} INFO - 
+[2026-09-04T19:16:19.795+0000] {subprocess.py:106} INFO - Starting a Gradle Daemon (subsequent builds will be faster)
+[2026-09-04T19:16:27.991+0000] {subprocess.py:106} INFO - > Task :versionTxt
+[2026-09-04T19:16:57.990+0000] {subprocess.py:106} INFO - > Task :compileJava
+[2026-09-04T19:17:01.790+0000] {subprocess.py:106} INFO - Note: Some input files use unchecked or unsafe operations.
+[2026-09-04T19:17:01.791+0000] {subprocess.py:106} INFO - Note: Recompile with -Xlint:unchecked for details.
+[2026-09-04T19:17:05.090+0000] {subprocess.py:106} INFO - 
+[2026-09-04T19:17:05.091+0000] {subprocess.py:106} INFO - > Task :processResources
+[2026-09-04T19:17:05.091+0000] {subprocess.py:106} INFO - > Task :classes
+[2026-09-04T19:17:16.290+0000] {subprocess.py:106} INFO - 
+[2026-09-04T19:17:16.291+0000] {subprocess.py:106} INFO - > Task :run
+[2026-09-04T19:17:16.292+0000] {subprocess.py:106} INFO - SLF4J: No SLF4J providers were found.
+[2026-09-04T19:17:16.292+0000] {subprocess.py:106} INFO - SLF4J: Defaulting to no-operation (NOP) logger implementation
+[2026-09-04T19:17:16.292+0000] {subprocess.py:106} INFO - SLF4J: See http://www.slf4j.org/codes.html#noProviders for further details.
+[2026-09-04T19:17:16.390+0000] {subprocess.py:106} INFO - Scanned 90 modules and 157 submodules.
+[2026-09-04T19:17:16.390+0000] {subprocess.py:106} INFO - Loading submodule modules/allergies/allergy_panel.json
+[2026-09-04T19:17:16.490+0000] {subprocess.py:106} INFO - Loading submodule modules/allergies/drug_allergy_incidence.json
+[2026-09-04T19:17:16.491+0000] {subprocess.py:106} INFO - Loading submodule modules/allergies/environmental_allergy_incidence.json
+[2026-09-04T19:17:16.492+0000] {subprocess.py:106} INFO - Loading submodule modules/allergies/food_allergy_incidence.json
+[2026-09-04T19:17:16.493+0000] {subprocess.py:106} INFO - Loading submodule modules/allergies/immunotherapy.json
+[2026-09-04T19:17:16.493+0000] {subprocess.py:106} INFO - Loading submodule modules/allergies/outgrow_env_allergies.json
+[2026-09-04T19:17:16.590+0000] {subprocess.py:106} INFO - Loading submodule modules/allergies/outgrow_food_allergies.json
+[2026-09-04T19:17:16.590+0000] {subprocess.py:106} INFO - Loading submodule modules/allergies/severe_allergic_reaction.json
+[2026-09-04T19:17:16.591+0000] {subprocess.py:106} INFO - Loading submodule modules/anemia/anemia_sub.json
+[2026-09-04T19:17:16.591+0000] {subprocess.py:106} INFO - Loading submodule modules/breast_cancer/chemotherapy_breast.json
+[2026-09-04T19:17:16.591+0000] {subprocess.py:106} INFO - Loading submodule modules/breast_cancer/hormone_diagnosis.json
+[2026-09-04T19:17:16.691+0000] {subprocess.py:106} INFO - Loading submodule modules/breast_cancer/hormonetherapy_breast.json
+[2026-09-04T19:17:16.691+0000] {subprocess.py:106} INFO - Loading submodule modules/breast_cancer/surgery_therapy_breast.json
+[2026-09-04T19:17:16.691+0000] {subprocess.py:106} INFO - Loading submodule modules/breast_cancer/tnm_diagnosis.json
+[2026-09-04T19:17:16.692+0000] {subprocess.py:106} INFO - Loading submodule modules/contraceptives/clear_contraceptive.json
+[2026-09-04T19:17:16.792+0000] {subprocess.py:106} INFO - Loading submodule modules/contraceptives/female_sterilization.json
+[2026-09-04T19:17:16.792+0000] {subprocess.py:106} INFO - Loading submodule modules/contraceptives/implant_contraceptive.json
+[2026-09-04T19:17:16.792+0000] {subprocess.py:106} INFO - Loading submodule modules/contraceptives/injectable_contraceptive.json
+[2026-09-04T19:17:16.792+0000] {subprocess.py:106} INFO - Loading submodule modules/contraceptives/intrauterine_device.json
+[2026-09-04T19:17:16.792+0000] {subprocess.py:106} INFO - Loading submodule modules/contraceptives/male_sterilization.json
+[2026-09-04T19:17:16.792+0000] {subprocess.py:106} INFO - Loading submodule modules/contraceptives/oral_contraceptive.json
+[2026-09-04T19:17:16.793+0000] {subprocess.py:106} INFO - Loading submodule modules/contraceptives/patch_contraceptive.json
+[2026-09-04T19:17:16.793+0000] {subprocess.py:106} INFO - Loading submodule modules/contraceptives/ring_contraceptive.json
+[2026-09-04T19:17:16.793+0000] {subprocess.py:106} INFO - Loading submodule modules/covid19/admission.json
+[2026-09-04T19:17:16.890+0000] {subprocess.py:106} INFO - Loading submodule modules/covid19/determine_risk.json
+[2026-09-04T19:17:16.891+0000] {subprocess.py:106} INFO - Loading Lookup Table: covid-19-severity-outcomes.csv
+[2026-09-04T19:17:16.891+0000] {subprocess.py:106} INFO - Loading Lookup Table: covid-19-survival-outcomes.csv
+[2026-09-04T19:17:16.891+0000] {subprocess.py:106} INFO - Loading submodule modules/covid19/diagnose_bacterial_infection.json
+[2026-09-04T19:17:16.990+0000] {subprocess.py:106} INFO - Loading submodule modules/covid19/diagnose_blood_clot.json
+[2026-09-04T19:17:16.990+0000] {subprocess.py:106} INFO - Loading submodule modules/covid19/end_outcomes.json
+[2026-09-04T19:17:16.990+0000] {subprocess.py:106} INFO - Loading submodule modules/covid19/end_symptoms.json
+[2026-09-04T19:17:16.990+0000] {subprocess.py:106} INFO - Loading submodule modules/covid19/infection.json
+[2026-09-04T19:17:16.990+0000] {subprocess.py:106} INFO - Loading submodule modules/covid19/measurements_daily.json
+[2026-09-04T19:17:16.990+0000] {subprocess.py:106} INFO - Loading submodule modules/covid19/measurements_frequent.json
+[2026-09-04T19:17:16.990+0000] {subprocess.py:106} INFO - Loading submodule modules/covid19/measurements_vitals.json
+[2026-09-04T19:17:16.990+0000] {subprocess.py:106} INFO - Loading submodule modules/covid19/medications.json
+[2026-09-04T19:17:17.090+0000] {subprocess.py:106} INFO - Loading submodule modules/covid19/nonsurvivor_lab_values.json
+[2026-09-04T19:17:17.090+0000] {subprocess.py:106} INFO - Loading submodule modules/covid19/outcomes.json
+[2026-09-04T19:17:17.090+0000] {subprocess.py:106} INFO - Loading submodule modules/covid19/supplies_hospitalization.json
+[2026-09-04T19:17:17.091+0000] {subprocess.py:106} INFO - Loading submodule modules/covid19/supplies_icu.json
+[2026-09-04T19:17:17.091+0000] {subprocess.py:106} INFO - Loading submodule modules/covid19/supplies_intubation.json
+[2026-09-04T19:17:17.091+0000] {subprocess.py:106} INFO - Loading submodule modules/covid19/survivor_lab_values.json
+[2026-09-04T19:17:17.091+0000] {subprocess.py:106} INFO - Loading submodule modules/covid19/symptoms.json
+[2026-09-04T19:17:17.091+0000] {subprocess.py:106} INFO - Loading submodule modules/covid19/treat_blood_clot.json
+[2026-09-04T19:17:17.190+0000] {subprocess.py:106} INFO - Loading submodule modules/dermatitis/early_moderate_eczema_obs.json
+[2026-09-04T19:17:17.190+0000] {subprocess.py:106} INFO - Loading submodule modules/dermatitis/early_severe_eczema_obs.json
+[2026-09-04T19:17:17.190+0000] {subprocess.py:106} INFO - Loading submodule modules/dermatitis/mid_moderate_eczema_obs.json
+[2026-09-04T19:17:17.190+0000] {subprocess.py:106} INFO - Loading submodule modules/dermatitis/mid_severe_eczema_obs.json
+[2026-09-04T19:17:17.190+0000] {subprocess.py:106} INFO - Loading submodule modules/dermatitis/moderate_cd_obs.json
+[2026-09-04T19:17:17.191+0000] {subprocess.py:106} INFO - Loading submodule modules/dermatitis/severe_cd_obs.json
+[2026-09-04T19:17:17.191+0000] {subprocess.py:106} INFO - Loading submodule modules/dme/wheelchair.json
+[2026-09-04T19:17:17.191+0000] {subprocess.py:106} INFO - Loading submodule modules/dme/wheelchair_end.json
+[2026-09-04T19:17:17.191+0000] {subprocess.py:106} INFO - Loading submodule modules/encounter/anxiety_screening.json
+[2026-09-04T19:17:17.191+0000] {subprocess.py:106} INFO - Loading submodule modules/encounter/depression_screening.json
+[2026-09-04T19:17:17.191+0000] {subprocess.py:106} INFO - Loading submodule modules/encounter/fall_risk_screening.json
+[2026-09-04T19:17:17.191+0000] {subprocess.py:106} INFO - Loading submodule modules/encounter/hark_screening.json
+[2026-09-04T19:17:17.191+0000] {subprocess.py:106} INFO - Loading submodule modules/encounter/hospital_basic_labs.json
+[2026-09-04T19:17:17.191+0000] {subprocess.py:106} INFO - Loading submodule modules/encounter/sdoh_hrsn.json
+[2026-09-04T19:17:17.290+0000] {subprocess.py:106} INFO - Loading submodule modules/encounter/substance_use_screening.json
+[2026-09-04T19:17:17.290+0000] {subprocess.py:106} INFO - Loading submodule modules/encounter/vitals.json
+[2026-09-04T19:17:17.290+0000] {subprocess.py:106} INFO - Loading submodule modules/eye/intraocular_pressure.json
+[2026-09-04T19:17:17.290+0000] {subprocess.py:106} INFO - Loading submodule modules/eye/ophthalmic_progression.json
+[2026-09-04T19:17:17.291+0000] {subprocess.py:106} INFO - Loading submodule modules/eye/ophthalmic_tomography.json
+[2026-09-04T19:17:17.291+0000] {subprocess.py:106} INFO - Loading submodule modules/eye/visual_acuity.json
+[2026-09-04T19:17:17.291+0000] {subprocess.py:106} INFO - Loading submodule modules/heart/acs_anticoagulant.json
+[2026-09-04T19:17:17.291+0000] {subprocess.py:106} INFO - Loading submodule modules/heart/acs_antiplatelet.json
+[2026-09-04T19:17:17.291+0000] {subprocess.py:106} INFO - Loading submodule modules/heart/acs_arrival_medications.json
+[2026-09-04T19:17:17.391+0000] {subprocess.py:106} INFO - Loading submodule modules/heart/acs_discharge_meds.json
+[2026-09-04T19:17:17.391+0000] {subprocess.py:106} INFO - Loading submodule modules/heart/avrr/antithrombotic.json
+[2026-09-04T19:17:17.391+0000] {subprocess.py:106} INFO - Loading submodule modules/heart/avrr/avrr_referral.json
+[2026-09-04T19:17:17.391+0000] {subprocess.py:106} INFO - Loading submodule modules/heart/avrr/intraop_meds_blood.json
+[2026-09-04T19:17:17.391+0000] {subprocess.py:106} INFO - Loading submodule modules/heart/avrr/outcomes.json
+[2026-09-04T19:17:17.391+0000] {subprocess.py:106} INFO - Loading submodule modules/heart/avrr/preoperative.json
+[2026-09-04T19:17:17.391+0000] {subprocess.py:106} INFO - Loading submodule modules/heart/avrr/savrr_operation.json
+[2026-09-04T19:17:17.391+0000] {subprocess.py:106} INFO - Loading submodule modules/heart/avrr/savrr_postop.json
+[2026-09-04T19:17:17.392+0000] {subprocess.py:106} INFO - Loading submodule modules/heart/avrr/sequence.json
+[2026-09-04T19:17:17.392+0000] {subprocess.py:106} INFO - Loading submodule modules/heart/cabg/cabg_referral.json
+[2026-09-04T19:17:17.392+0000] {subprocess.py:106} INFO - Loading submodule modules/heart/cabg/details.json
+[2026-09-04T19:17:17.392+0000] {subprocess.py:106} INFO - Loading Lookup Table: cabg_details_operative_approach.csv
+[2026-09-04T19:17:17.392+0000] {subprocess.py:106} INFO - Loading Lookup Table: cabg_details_num_grafts.csv
+[2026-09-04T19:17:17.392+0000] {subprocess.py:106} INFO - Loading Lookup Table: cabg_details_num_art_cond.csv
+[2026-09-04T19:17:17.490+0000] {subprocess.py:106} INFO - Loading submodule modules/heart/cabg/icu_meds_devices.json
+[2026-09-04T19:17:17.490+0000] {subprocess.py:106} INFO - Loading submodule modules/heart/cabg/labs_common.json
+[2026-09-04T19:17:17.490+0000] {subprocess.py:106} INFO - Loading submodule modules/heart/cabg/operation.json
+[2026-09-04T19:17:17.491+0000] {subprocess.py:106} INFO - Loading submodule modules/heart/cabg/or_intraop.json
+[2026-09-04T19:17:17.491+0000] {subprocess.py:106} INFO - Loading submodule modules/heart/cabg/or_labs_meds.json
+[2026-09-04T19:17:17.491+0000] {subprocess.py:106} INFO - Loading submodule modules/heart/cabg/outcomes.json
+[2026-09-04T19:17:17.491+0000] {subprocess.py:106} INFO - Loading submodule modules/heart/cabg/postop.json
+[2026-09-04T19:17:17.491+0000] {subprocess.py:106} INFO - Loading submodule modules/heart/cabg/postop_blood.json
+[2026-09-04T19:17:17.491+0000] {subprocess.py:106} INFO - Loading submodule modules/heart/cabg/preoperative.json
+[2026-09-04T19:17:17.491+0000] {subprocess.py:106} INFO - Loading submodule modules/heart/cabg_sequence.json
+[2026-09-04T19:17:17.491+0000] {subprocess.py:106} INFO - Loading submodule modules/heart/cardiac_labs.json
+[2026-09-04T19:17:17.491+0000] {subprocess.py:106} INFO - Loading submodule modules/heart/chf_lab_work.json
+[2026-09-04T19:17:17.491+0000] {subprocess.py:106} INFO - Loading submodule modules/heart/chf_lvad.json
+[2026-09-04T19:17:17.491+0000] {subprocess.py:106} INFO - Loading submodule modules/heart/chf_meds.json
+[2026-09-04T19:17:17.491+0000] {subprocess.py:106} INFO - Loading submodule modules/heart/chf_meds_hfmef.json
+[2026-09-04T19:17:17.491+0000] {subprocess.py:106} INFO - Loading submodule modules/heart/chf_meds_hfref_nyha2.json
+[2026-09-04T19:17:17.492+0000] {subprocess.py:106} INFO - Loading submodule modules/heart/chf_meds_hfref_nyha3.json
+[2026-09-04T19:17:17.492+0000] {subprocess.py:106} INFO - Loading submodule modules/heart/chf_meds_hfref_nyha4.json
+[2026-09-04T19:17:17.590+0000] {subprocess.py:106} INFO - Loading submodule modules/heart/chf_nyha_panel.json
+[2026-09-04T19:17:17.590+0000] {subprocess.py:106} INFO - Loading submodule modules/heart/chf_transplant.json
+[2026-09-04T19:17:17.590+0000] {subprocess.py:106} INFO - Loading submodule modules/heart/nsteacs_pathway.json
+[2026-09-04T19:17:17.590+0000] {subprocess.py:106} INFO - Loading submodule modules/heart/operative_status.json
+[2026-09-04T19:17:17.590+0000] {subprocess.py:106} INFO - Loading submodule modules/heart/or_blood.json
+[2026-09-04T19:17:17.591+0000] {subprocess.py:106} INFO - Loading Lookup Table: or_blood_anemia_check.csv
+[2026-09-04T19:17:17.591+0000] {subprocess.py:106} INFO - Loading Lookup Table: or_blood_platelet_check.csv
+[2026-09-04T19:17:17.591+0000] {subprocess.py:106} INFO - Loading Lookup Table: or_blood_plasma_check.csv
+[2026-09-04T19:17:17.591+0000] {subprocess.py:106} INFO - Loading submodule modules/heart/savrepair/operative_status.json
+[2026-09-04T19:17:17.591+0000] {subprocess.py:106} INFO - Loading submodule modules/heart/savreplace/operative_status.json
+[2026-09-04T19:17:17.591+0000] {subprocess.py:106} INFO - Loading submodule modules/heart/stemi_fibrinolytic.json
+[2026-09-04T19:17:17.591+0000] {subprocess.py:106} INFO - Loading submodule modules/heart/stemi_pathway.json
+[2026-09-04T19:17:17.591+0000] {subprocess.py:106} INFO - Loading submodule modules/heart/tavr/alt_access.json
+[2026-09-04T19:17:17.591+0000] {subprocess.py:106} INFO - Loading submodule modules/heart/tavr/operation.json
+[2026-09-04T19:17:17.591+0000] {subprocess.py:106} INFO - Loading submodule modules/heart/tavr/operative_status.json
+[2026-09-04T19:17:17.591+0000] {subprocess.py:106} INFO - Loading submodule modules/heart/tavr/outcomes.json
+[2026-09-04T19:17:17.591+0000] {subprocess.py:106} INFO - Loading submodule modules/heart/tavr/postop.json
+[2026-09-04T19:17:17.693+0000] {subprocess.py:106} INFO - Loading submodule modules/heart/vhd_risks.json
+[2026-09-04T19:17:17.693+0000] {subprocess.py:106} INFO - Loading submodule modules/hiv/art_sequence.json
+[2026-09-04T19:17:17.693+0000] {subprocess.py:106} INFO - Loading submodule modules/hiv/art_sequence_1987_1994.json
+[2026-09-04T19:17:17.693+0000] {subprocess.py:106} INFO - Loading submodule modules/hiv/art_sequence_1995_1996.json
+[2026-09-04T19:17:17.693+0000] {subprocess.py:106} INFO - Loading submodule modules/hiv/art_sequence_1997_2002.json
+[2026-09-04T19:17:17.693+0000] {subprocess.py:106} INFO - Loading submodule modules/hiv/art_sequence_2003_2005.json
+[2026-09-04T19:17:17.693+0000] {subprocess.py:106} INFO - Loading submodule modules/hiv/art_sequence_2006_2014.json
+[2026-09-04T19:17:17.693+0000] {subprocess.py:106} INFO - Loading submodule modules/hiv/art_sequence_2015.json
+[2026-09-04T19:17:17.694+0000] {subprocess.py:106} INFO - Loading submodule modules/hiv/hiv_baseline.json
+[2026-09-04T19:17:17.694+0000] {subprocess.py:106} INFO - Loading submodule modules/hiv/hiv_cd4.json
+[2026-09-04T19:17:17.694+0000] {subprocess.py:106} INFO - Loading Lookup Table: hiv_stage.csv
+[2026-09-04T19:17:17.694+0000] {subprocess.py:106} INFO - Loading submodule modules/hiv/hiv_oi_prophylaxis.json
+[2026-09-04T19:17:17.694+0000] {subprocess.py:106} INFO - Loading submodule modules/hiv/hiv_screening.json
+[2026-09-04T19:17:17.694+0000] {subprocess.py:106} INFO - Loading submodule modules/hiv/hiv_viral_load.json
+[2026-09-04T19:17:17.790+0000] {subprocess.py:106} INFO - Loading submodule modules/hiv/stop_all_art_meds.json
+[2026-09-04T19:17:17.791+0000] {subprocess.py:106} INFO - Loading submodule modules/injuries/broken_jaw.json
+[2026-09-04T19:17:17.791+0000] {subprocess.py:106} INFO - Loading submodule modules/lung_cancer/lung_cancer_probabilities.json
+[2026-09-04T19:17:17.791+0000] {subprocess.py:106} INFO - Loading submodule modules/medications/ace_arb.json
+[2026-09-04T19:17:17.791+0000] {subprocess.py:106} INFO - Loading Lookup Table: ace_arb_ingredient_distribution.csv
+[2026-09-04T19:17:17.791+0000] {subprocess.py:106} INFO - Loading Lookup Table: ace_arb_amlodipine_benazepril_product_distribution.csv
+[2026-09-04T19:17:17.791+0000] {subprocess.py:106} INFO - Loading Lookup Table: ace_arb_benazepril_product_distribution.csv
+[2026-09-04T19:17:17.791+0000] {subprocess.py:106} INFO - Loading Lookup Table: ace_arb_benazepril_hydrochlorothiazide_product_distribution.csv
+[2026-09-04T19:17:17.792+0000] {subprocess.py:106} INFO - Loading Lookup Table: ace_arb_enalapril_product_distribution.csv
+[2026-09-04T19:17:17.792+0000] {subprocess.py:106} INFO - Loading Lookup Table: ace_arb_hydrochlorothiazide_lisinopril_product_distribution.csv
+[2026-09-04T19:17:17.792+0000] {subprocess.py:106} INFO - Loading Lookup Table: ace_arb_hydrochlorothiazide_losartan_product_distribution.csv
+[2026-09-04T19:17:17.792+0000] {subprocess.py:106} INFO - Loading Lookup Table: ace_arb_hydrochlorothiazide_valsartan_product_distribution.csv
+[2026-09-04T19:17:17.792+0000] {subprocess.py:106} INFO - Loading Lookup Table: ace_arb_irbesartan_product_distribution.csv
+[2026-09-04T19:17:17.792+0000] {subprocess.py:106} INFO - Loading Lookup Table: ace_arb_lisinopril_product_distribution.csv
+[2026-09-04T19:17:17.792+0000] {subprocess.py:106} INFO - Loading Lookup Table: ace_arb_losartan_product_distribution.csv
+[2026-09-04T19:17:17.792+0000] {subprocess.py:106} INFO - Loading Lookup Table: ace_arb_quinapril_product_distribution.csv
+[2026-09-04T19:17:17.792+0000] {subprocess.py:106} INFO - Loading Lookup Table: ace_arb_ramipril_product_distribution.csv
+[2026-09-04T19:17:17.792+0000] {subprocess.py:106} INFO - Loading Lookup Table: ace_arb_sacubitril_valsartan_product_distribution.csv
+[2026-09-04T19:17:17.793+0000] {subprocess.py:106} INFO - Loading Lookup Table: ace_arb_telmisartan_product_distribution.csv
+[2026-09-04T19:17:17.793+0000] {subprocess.py:106} INFO - Loading Lookup Table: ace_arb_valsartan_product_distribution.csv
+[2026-09-04T19:17:17.793+0000] {subprocess.py:106} INFO - Loading submodule modules/medications/beta_blocker.json
+[2026-09-04T19:17:17.793+0000] {subprocess.py:106} INFO - Loading Lookup Table: beta_blocker_ingredient_distribution.csv
+[2026-09-04T19:17:17.793+0000] {subprocess.py:106} INFO - Loading Lookup Table: beta_blocker_atenolol_product_distribution.csv
+[2026-09-04T19:17:17.793+0000] {subprocess.py:106} INFO - Loading Lookup Table: beta_blocker_bisoprolol_product_distribution.csv
+[2026-09-04T19:17:17.793+0000] {subprocess.py:106} INFO - Loading Lookup Table: beta_blocker_bisoprolol_hydrochlorothiazide_product_distribution.csv
+[2026-09-04T19:17:17.793+0000] {subprocess.py:106} INFO - Loading Lookup Table: beta_blocker_carvedilol_product_distribution.csv
+[2026-09-04T19:17:17.793+0000] {subprocess.py:106} INFO - Loading Lookup Table: beta_blocker_labetalol_product_distribution.csv
+[2026-09-04T19:17:17.793+0000] {subprocess.py:106} INFO - Loading Lookup Table: beta_blocker_metoprolol_product_distribution.csv
+[2026-09-04T19:17:17.794+0000] {subprocess.py:106} INFO - Loading Lookup Table: beta_blocker_nebivolol_product_distribution.csv
+[2026-09-04T19:17:17.794+0000] {subprocess.py:106} INFO - Loading Lookup Table: beta_blocker_propranolol_product_distribution.csv
+[2026-09-04T19:17:17.794+0000] {subprocess.py:106} INFO - Loading submodule modules/medications/ear_infection_antibiotic.json
+[2026-09-04T19:17:17.890+0000] {subprocess.py:106} INFO - Loading submodule modules/medications/emergency_inhaler.json
+[2026-09-04T19:17:17.890+0000] {subprocess.py:106} INFO - Loading Lookup Table: emergency_inhaler_ingredient_distribution.csv
+[2026-09-04T19:17:17.890+0000] {subprocess.py:106} INFO - Loading Lookup Table: emergency_inhaler_albuterol_product_distribution.csv
+[2026-09-04T19:17:17.891+0000] {subprocess.py:106} INFO - Loading Lookup Table: emergency_inhaler_levalbuterol_product_distribution.csv
+[2026-09-04T19:17:17.891+0000] {subprocess.py:106} INFO - Loading submodule modules/medications/hypertension_medication.json
+[2026-09-04T19:17:17.891+0000] {subprocess.py:106} INFO - Loading submodule modules/medications/maintenance_inhaler.json
+[2026-09-04T19:17:17.891+0000] {subprocess.py:106} INFO - Loading Lookup Table: maintenance_inhaler_ingredient_distribution.csv
+[2026-09-04T19:17:17.891+0000] {subprocess.py:106} INFO - Loading Lookup Table: maintenance_inhaler_beclomethasone_product_distribution.csv
+[2026-09-04T19:17:17.891+0000] {subprocess.py:106} INFO - Loading Lookup Table: maintenance_inhaler_budesonide_product_distribution.csv
+[2026-09-04T19:17:17.891+0000] {subprocess.py:106} INFO - Loading Lookup Table: maintenance_inhaler_fluticasone_product_distribution.csv
+[2026-09-04T19:17:17.891+0000] {subprocess.py:106} INFO - Loading Lookup Table: maintenance_inhaler_mometasone_product_distribution.csv
+[2026-09-04T19:17:17.891+0000] {subprocess.py:106} INFO - Loading submodule modules/medications/moderate_opioid_pain_reliever.json
+[2026-09-04T19:17:17.892+0000] {subprocess.py:106} INFO - Loading submodule modules/medications/otc_antihistamine.json
+[2026-09-04T19:17:17.892+0000] {subprocess.py:106} INFO - Loading submodule modules/medications/otc_pain_reliever.json
+[2026-09-04T19:17:17.892+0000] {subprocess.py:106} INFO - Loading submodule modules/medications/statin.json
+[2026-09-04T19:17:17.892+0000] {subprocess.py:106} INFO - Loading Lookup Table: statin_ingredient_distribution.csv
+[2026-09-04T19:17:17.892+0000] {subprocess.py:106} INFO - Loading Lookup Table: statin_atorvastatin_product_distribution.csv
+[2026-09-04T19:17:17.892+0000] {subprocess.py:106} INFO - Loading Lookup Table: statin_ezetimibe_simvastatin_product_distribution.csv
+[2026-09-04T19:17:17.892+0000] {subprocess.py:106} INFO - Loading Lookup Table: statin_lovastatin_product_distribution.csv
+[2026-09-04T19:17:17.892+0000] {subprocess.py:106} INFO - Loading Lookup Table: statin_pitavastatin_product_distribution.csv
+[2026-09-04T19:17:17.892+0000] {subprocess.py:106} INFO - Loading Lookup Table: statin_pravastatin_product_distribution.csv
+[2026-09-04T19:17:17.892+0000] {subprocess.py:106} INFO - Loading Lookup Table: statin_rosuvastatin_product_distribution.csv
+[2026-09-04T19:17:17.892+0000] {subprocess.py:106} INFO - Loading Lookup Table: statin_simvastatin_product_distribution.csv
+[2026-09-04T19:17:17.892+0000] {subprocess.py:106} INFO - Loading submodule modules/medications/strong_opioid_pain_reliever.json
+[2026-09-04T19:17:17.892+0000] {subprocess.py:106} INFO - Loading submodule modules/metabolic_syndrome/amputations.json
+[2026-09-04T19:17:17.892+0000] {subprocess.py:106} INFO - Loading submodule modules/metabolic_syndrome/diabetic_retinopathy_diagnoses.json
+[2026-09-04T19:17:17.892+0000] {subprocess.py:106} INFO - Loading submodule modules/metabolic_syndrome/diabetic_retinopathy_progression.json
+[2026-09-04T19:17:17.892+0000] {subprocess.py:106} INFO - Loading submodule modules/metabolic_syndrome/dme_supplies.json
+[2026-09-04T19:17:17.893+0000] {subprocess.py:106} INFO - Loading submodule modules/metabolic_syndrome/kidney_conditions.json
+[2026-09-04T19:17:17.990+0000] {subprocess.py:106} INFO - Loading submodule modules/metabolic_syndrome/medications.json
+[2026-09-04T19:17:17.990+0000] {subprocess.py:106} INFO - Loading submodule modules/snf/skilled_nursing_facility.json
+[2026-09-04T19:17:17.990+0000] {subprocess.py:106} INFO - Loading submodule modules/surgery/general_anesthesia.json
+[2026-09-04T19:17:17.990+0000] {subprocess.py:106} INFO - Loading submodule modules/total_joint_replacement/functional_status_assessments.json
+[2026-09-04T19:17:17.990+0000] {subprocess.py:106} INFO - Loading submodule modules/uti/abx_tx.json
+[2026-09-04T19:17:17.990+0000] {subprocess.py:106} INFO - Loading submodule modules/uti/ambulatory_eval.json
+[2026-09-04T19:17:17.990+0000] {subprocess.py:106} INFO - Loading submodule modules/uti/ambulatory_path.json
+[2026-09-04T19:17:17.990+0000] {subprocess.py:106} INFO - Loading submodule modules/uti/ed_bundle.json
+[2026-09-04T19:17:17.990+0000] {subprocess.py:106} INFO - Loading submodule modules/uti/ed_eval.json
+[2026-09-04T19:17:17.990+0000] {subprocess.py:106} INFO - Loading submodule modules/uti/ed_path.json
+[2026-09-04T19:17:17.991+0000] {subprocess.py:106} INFO - Loading submodule modules/uti/gu_pregnancy_check.json
+[2026-09-04T19:17:17.991+0000] {subprocess.py:106} INFO - Loading submodule modules/uti/hpi.json
+[2026-09-04T19:17:17.991+0000] {subprocess.py:106} INFO - Loading submodule modules/uti/lab_follow_up.json
+[2026-09-04T19:17:17.991+0000] {subprocess.py:106} INFO - Loading submodule modules/uti/labs.json
+[2026-09-04T19:17:17.991+0000] {subprocess.py:106} INFO - Loading submodule modules/uti/telemed_path.json
+[2026-09-04T19:17:17.991+0000] {subprocess.py:106} INFO - Loading submodule modules/veterans/veteran_suicide_probabilities.json
+[2026-09-04T19:17:17.991+0000] {subprocess.py:106} INFO - Loading submodule modules/weight_loss/mend_week.json
+[2026-09-04T19:17:17.991+0000] {subprocess.py:106} INFO - Loading module modules/AIS_From_School_Screening_to_SOSORT_Recommendations.json
+[2026-09-04T19:17:18.090+0000] {subprocess.py:106} INFO - Loading module modules/acute_myeloid_leukemia.json
+[2026-09-04T19:17:18.090+0000] {subprocess.py:106} INFO - Loading Lookup Table: AML.csv
+[2026-09-04T19:17:18.090+0000] {subprocess.py:106} INFO - Loading module modules/allergic_rhinitis.json
+[2026-09-04T19:17:18.090+0000] {subprocess.py:106} INFO - Loading module modules/allergies.json
+[2026-09-04T19:17:18.091+0000] {subprocess.py:106} INFO - Loading module modules/anemia___unknown_etiology.json
+[2026-09-04T19:17:18.091+0000] {subprocess.py:106} INFO - Loading module modules/appendicitis.json
+[2026-09-04T19:17:18.091+0000] {subprocess.py:106} INFO - Loading module modules/asthma.json
+[2026-09-04T19:17:18.091+0000] {subprocess.py:106} INFO - Loading module modules/atopy.json
+[2026-09-04T19:17:18.091+0000] {subprocess.py:106} INFO - Loading module modules/atrial_fibrillation.json
+[2026-09-04T19:17:18.192+0000] {subprocess.py:106} INFO - Loading module modules/attention_deficit_disorder.json
+[2026-09-04T19:17:18.192+0000] {subprocess.py:106} INFO - Loading module modules/bone_marrow_transplant.json
+[2026-09-04T19:17:18.193+0000] {subprocess.py:106} INFO - Loading module modules/breast_cancer.json
+[2026-09-04T19:17:18.193+0000] {subprocess.py:106} INFO - Loading module modules/bronchitis.json
+[2026-09-04T19:17:18.193+0000] {subprocess.py:106} INFO - Loading module modules/cerebral_palsy.json
+[2026-09-04T19:17:18.290+0000] {subprocess.py:106} INFO - Loading module modules/chronic_kidney_disease.json
+[2026-09-04T19:17:18.291+0000] {subprocess.py:106} INFO - Loading module modules/colorectal_cancer.json
+[2026-09-04T19:17:18.291+0000] {subprocess.py:106} INFO - Loading module modules/congestive_heart_failure.json
+[2026-09-04T19:17:18.291+0000] {subprocess.py:106} INFO - Loading module modules/contraceptive_maintenance.json
+[2026-09-04T19:17:18.291+0000] {subprocess.py:106} INFO - Loading module modules/contraceptives.json
+[2026-09-04T19:17:18.291+0000] {subprocess.py:106} INFO - Loading module modules/copd.json
+[2026-09-04T19:17:18.390+0000] {subprocess.py:106} INFO - Loading module modules/covid19.json
+[2026-09-04T19:17:18.391+0000] {subprocess.py:106} INFO - Loading Lookup Table: covid19_prob.csv
+[2026-09-04T19:17:18.391+0000] {subprocess.py:106} INFO - Loading module modules/cystic_fibrosis.json
+[2026-09-04T19:17:18.391+0000] {subprocess.py:106} INFO - Loading module modules/dementia.json
+[2026-09-04T19:17:18.391+0000] {subprocess.py:106} INFO - Loading module modules/dental_and_oral_examination.json
+[2026-09-04T19:17:18.391+0000] {subprocess.py:106} INFO - Loading module modules/dentures.json
+[2026-09-04T19:17:18.490+0000] {subprocess.py:106} INFO - Loading module modules/dermatitis.json
+[2026-09-04T19:17:18.490+0000] {subprocess.py:106} INFO - Loading module modules/diabetic_retinopathy_treatment.json
+[2026-09-04T19:17:18.491+0000] {subprocess.py:106} INFO - Loading Lookup Table: diabetic_retinopathy_followup.csv
+[2026-09-04T19:17:18.491+0000] {subprocess.py:106} INFO - Loading module modules/dialysis.json
+[2026-09-04T19:17:18.491+0000] {subprocess.py:106} INFO - Loading module modules/ear_infections.json
+[2026-09-04T19:17:18.491+0000] {subprocess.py:106} INFO - Loading module modules/epilepsy.json
+[2026-09-04T19:17:18.491+0000] {subprocess.py:106} INFO - Loading module modules/female_reproduction.json
+[2026-09-04T19:17:18.491+0000] {subprocess.py:106} INFO - Loading module modules/fibromyalgia.json
+[2026-09-04T19:17:18.491+0000] {subprocess.py:106} INFO - Loading module modules/food_allergies.json
+[2026-09-04T19:17:18.491+0000] {subprocess.py:106} INFO - Loading module modules/gallstones.json
+[2026-09-04T19:17:18.491+0000] {subprocess.py:106} INFO - Loading module modules/gout.json
+[2026-09-04T19:17:18.491+0000] {subprocess.py:106} INFO - Loading module modules/hiv_care.json
+[2026-09-04T19:17:18.491+0000] {subprocess.py:106} INFO - Loading Lookup Table: hiv_care.csv
+[2026-09-04T19:17:18.590+0000] {subprocess.py:106} INFO - Loading module modules/hiv_diagnosis.json
+[2026-09-04T19:17:18.590+0000] {subprocess.py:106} INFO - Loading Lookup Table: hiv_mortality_later.csv
+[2026-09-04T19:17:18.591+0000] {subprocess.py:106} INFO - Loading Lookup Table: hiv_mortality_early.csv
+[2026-09-04T19:17:18.591+0000] {subprocess.py:106} INFO - Loading Lookup Table: hiv_mortality_very_early.csv
+[2026-09-04T19:17:18.591+0000] {subprocess.py:106} INFO - Loading Lookup Table: hiv_diagnosis_early.csv
+[2026-09-04T19:17:18.592+0000] {subprocess.py:106} INFO - Loading Lookup Table: hiv_diagnosis_later.csv
+[2026-09-04T19:17:18.592+0000] {subprocess.py:106} INFO - Loading module modules/home_health_treatment.json
+[2026-09-04T19:17:18.592+0000] {subprocess.py:106} INFO - Loading module modules/home_hospice_snf.json
+[2026-09-04T19:17:18.592+0000] {subprocess.py:106} INFO - Loading module modules/homelessness.json
+[2026-09-04T19:17:18.592+0000] {subprocess.py:106} INFO - Loading module modules/hospice_treatment.json
+[2026-09-04T19:17:18.592+0000] {subprocess.py:106} INFO - Loading module modules/hypertension.json
+[2026-09-04T19:17:18.592+0000] {subprocess.py:106} INFO - Loading module modules/hypothyroidism.json
+[2026-09-04T19:17:18.592+0000] {subprocess.py:106} INFO - Loading module modules/injuries.json
+[2026-09-04T19:17:18.690+0000] {subprocess.py:106} INFO - Loading module modules/kidney_transplant.json
+[2026-09-04T19:17:18.690+0000] {subprocess.py:106} INFO - Loading module modules/lung_cancer.json
+[2026-09-04T19:17:18.690+0000] {subprocess.py:106} INFO - Loading module modules/lupus.json
+[2026-09-04T19:17:18.790+0000] {subprocess.py:106} INFO - Loading module modules/mTBI.json
+[2026-09-04T19:17:18.790+0000] {subprocess.py:106} INFO - Loading module modules/med_rec.json
+[2026-09-04T19:17:18.790+0000] {subprocess.py:106} INFO - Loading module modules/mend_program.json
+[2026-09-04T19:17:18.790+0000] {subprocess.py:106} INFO - Loading module modules/metabolic_syndrome_care.json
+[2026-09-04T19:17:18.790+0000] {subprocess.py:106} INFO - Loading module modules/metabolic_syndrome_disease.json
+[2026-09-04T19:17:18.790+0000] {subprocess.py:106} INFO - Loading module modules/myocardial_infarction.json
+[2026-09-04T19:17:18.790+0000] {subprocess.py:106} INFO - Loading module modules/opioid_addiction.json
+[2026-09-04T19:17:18.790+0000] {subprocess.py:106} INFO - Loading module modules/osteoarthritis.json
+[2026-09-04T19:17:18.792+0000] {subprocess.py:106} INFO - Loading module modules/osteoporosis.json
+[2026-09-04T19:17:18.792+0000] {subprocess.py:106} INFO - Loading module modules/pregnancy.json
+[2026-09-04T19:17:18.890+0000] {subprocess.py:106} INFO - Loading module modules/prescribing_opioids_for_chronic_pain_and_treatment_of_oud.json
+[2026-09-04T19:17:18.991+0000] {subprocess.py:106} INFO - Loading module modules/rheumatoid_arthritis.json
+[2026-09-04T19:17:18.993+0000] {subprocess.py:106} INFO - Loading module modules/self_harm.json
+[2026-09-04T19:17:18.993+0000] {subprocess.py:106} INFO - Loading module modules/sepsis.json
+[2026-09-04T19:17:18.993+0000] {subprocess.py:106} INFO - Loading module modules/sexual_activity.json
+[2026-09-04T19:17:18.993+0000] {subprocess.py:106} INFO - Loading module modules/sinusitis.json
+[2026-09-04T19:17:18.993+0000] {subprocess.py:106} INFO - Loading module modules/sleep_apnea.json
+[2026-09-04T19:17:18.993+0000] {subprocess.py:106} INFO - Loading module modules/sore_throat.json
+[2026-09-04T19:17:18.993+0000] {subprocess.py:106} INFO - Loading module modules/spina_bifida.json
+[2026-09-04T19:17:19.091+0000] {subprocess.py:106} INFO - Loading module modules/stable_ischemic_heart_disease.json
+[2026-09-04T19:17:19.091+0000] {subprocess.py:106} INFO - Loading module modules/stroke.json
+[2026-09-04T19:17:19.091+0000] {subprocess.py:106} INFO - Loading module modules/total_joint_replacement.json
+[2026-09-04T19:17:19.091+0000] {subprocess.py:106} INFO - Loading module modules/trigger_bone_marrow_transplant.json
+[2026-09-04T19:17:19.092+0000] {subprocess.py:106} INFO - Loading module modules/urinary_tract_infections.json
+[2026-09-04T19:17:19.092+0000] {subprocess.py:106} INFO - Loading Lookup Table: uti.csv
+[2026-09-04T19:17:19.092+0000] {subprocess.py:106} INFO - Loading Lookup Table: uti_recurrence.csv
+[2026-09-04T19:17:19.092+0000] {subprocess.py:106} INFO - Loading module modules/veteran.json
+[2026-09-04T19:17:19.092+0000] {subprocess.py:106} INFO - Loading module modules/veteran_hyperlipidemia.json
+[2026-09-04T19:17:19.092+0000] {subprocess.py:106} INFO - Loading module modules/veteran_lung_cancer.json
+[2026-09-04T19:17:19.190+0000] {subprocess.py:106} INFO - Loading module modules/veteran_mdd.json
+[2026-09-04T19:17:19.191+0000] {subprocess.py:106} INFO - Loading module modules/veteran_prostate_cancer.json
+[2026-09-04T19:17:19.191+0000] {subprocess.py:106} INFO - Loading module modules/veteran_ptsd.json
+[2026-09-04T19:17:19.192+0000] {subprocess.py:106} INFO - Loading module modules/veteran_self_harm.json
+[2026-09-04T19:17:19.192+0000] {subprocess.py:106} INFO - Loading module modules/veteran_substance_abuse_conditions.json
+[2026-09-04T19:17:19.290+0000] {subprocess.py:106} INFO - Loading module modules/veteran_substance_abuse_treatment.json
+[2026-09-04T19:17:19.290+0000] {subprocess.py:106} INFO - Loading module modules/vhd_aortic.json
+[2026-09-04T19:17:19.290+0000] {subprocess.py:106} INFO - Loading Lookup Table: vhd_as.csv
+[2026-09-04T19:17:19.290+0000] {subprocess.py:106} INFO - Loading Lookup Table: vhd_ar.csv
+[2026-09-04T19:17:19.291+0000] {subprocess.py:106} INFO - Loading module modules/vhd_mitral.json
+[2026-09-04T19:17:19.291+0000] {subprocess.py:106} INFO - Loading Lookup Table: vhd_mr.csv
+[2026-09-04T19:17:19.291+0000] {subprocess.py:106} INFO - Loading Lookup Table: vhd_ms.csv
+[2026-09-04T19:17:19.291+0000] {subprocess.py:106} INFO - Loading module modules/vhd_pulmonic.json
+[2026-09-04T19:17:19.291+0000] {subprocess.py:106} INFO - Loading Lookup Table: vhd_ps.csv
+[2026-09-04T19:17:19.291+0000] {subprocess.py:106} INFO - Loading Lookup Table: vhd_pr.csv
+[2026-09-04T19:17:19.291+0000] {subprocess.py:106} INFO - Loading module modules/vhd_tricuspid.json
+[2026-09-04T19:17:19.291+0000] {subprocess.py:106} INFO - Loading Lookup Table: vhd_tr.csv
+[2026-09-04T19:17:19.291+0000] {subprocess.py:106} INFO - Loading Lookup Table: vhd_ts.csv
+[2026-09-04T19:17:19.291+0000] {subprocess.py:106} INFO - Loading module modules/wellness_encounters.json
+[2026-09-04T19:17:19.291+0000] {subprocess.py:106} INFO - Running with options:
+[2026-09-04T19:17:19.292+0000] {subprocess.py:106} INFO - Population: 1
+[2026-09-04T19:17:19.292+0000] {subprocess.py:106} INFO - Seed: 1788549435282
+[2026-09-04T19:17:19.292+0000] {subprocess.py:106} INFO - Provider Seed:1788549435282
+[2026-09-04T19:17:19.292+0000] {subprocess.py:106} INFO - Reference Time: 1788549435282
+[2026-09-04T19:17:19.292+0000] {subprocess.py:106} INFO - Location: Massachusetts
+[2026-09-04T19:17:19.292+0000] {subprocess.py:106} INFO - Min Age: 0
+[2026-09-04T19:17:19.292+0000] {subprocess.py:106} INFO - Max Age: 140
+[2026-09-04T19:17:19.694+0000] {subprocess.py:106} INFO - 1 -- Arturo47 Schneider199 (46 y/o M) Walpole, Massachusetts  (63174)
+[2026-09-04T19:17:20.690+0000] {subprocess.py:106} INFO - Records: total=1, alive=1, dead=0
+[2026-09-04T19:17:20.690+0000] {subprocess.py:106} INFO - RNG=1
+[2026-09-04T19:17:20.690+0000] {subprocess.py:106} INFO - Clinician RNG=5641
+[2026-09-04T19:17:20.690+0000] {subprocess.py:106} INFO - 
+[2026-09-04T19:17:20.690+0000] {subprocess.py:106} INFO - [32mYou've just generated 1 patients![0m We're happy to know Synthea is helping you with your project.
+[2026-09-04T19:17:20.690+0000] {subprocess.py:106} INFO - Like what we're doing? Synthea is an open-source project, and your support helps us keep building.
+[2026-09-04T19:17:20.691+0000] {subprocess.py:106} INFO - Please consider [34m]8;;https://github.com/sponsors/synthetichealthmaking a donation]8;;[0m (https://github.com/sponsors/synthetichealth).
+[2026-09-04T19:17:20.691+0000] {subprocess.py:106} INFO - 
+[2026-09-04T19:17:20.691+0000] {subprocess.py:106} INFO - 
+[2026-09-04T19:17:20.691+0000] {subprocess.py:106} INFO - [Incubating] Problems report is available at: file:///opt/synthea/build/reports/problems/problems-report.html
+[2026-09-04T19:17:20.691+0000] {subprocess.py:106} INFO - 
+[2026-09-04T19:17:20.691+0000] {subprocess.py:106} INFO - BUILD SUCCESSFUL in 2m 8s
+[2026-09-04T19:17:20.691+0000] {subprocess.py:106} INFO - 4 actionable tasks: 4 executed
+[2026-09-04T19:17:20.691+0000] {subprocess.py:106} INFO - Consider enabling configuration cache to speed up this build: https://docs.gradle.org/9.2.1/userguide/configuration_cache_enabling.html
+[2026-09-04T19:17:21.418+0000] {subprocess.py:110} INFO - Command exited with return code 0
+[2026-09-04T19:17:21.446+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2026-09-04T19:17:21.446+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=***_analytics, task_id=generate_synthea, run_id=manual__2026-09-04T19:15:11.942489+00:00, execution_date=20260904T191511, start_date=20260904T191512, end_date=20260904T191721
+[2026-09-04T19:17:21.505+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2026-09-04T19:17:21.541+0000] {taskinstance.py:3901} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2026-09-04T19:17:21.541+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

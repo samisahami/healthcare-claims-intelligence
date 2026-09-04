@@ -125,7 +125,8 @@ def recreate_raw_table(
 
     with conn.cursor() as cur:
         cur.execute(
-            sql.SQL("drop table if exists raw.{}").format(
+            sql.SQL("DROP TABLE IF EXISTS {}.{} CASCADE").format(
+                sql.Identifier("raw"),
                 sql.Identifier(table_name)
             )
         )

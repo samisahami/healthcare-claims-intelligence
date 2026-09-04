@@ -30,12 +30,12 @@ services:
     depends_on:
       postgres:
         condition: service_healthy
-    
+
   synthea:
     build:
       context: .
       dockerfile: Dockerfile.synthea
-    
+
     volumes:
       - ./data/raw/synthea:/output
       - ./synthea.properties:/opt/synthea/synthea-local.properties:ro
@@ -50,17 +50,109 @@ services:
     volumes:
       - ./ingestion:/usr/app/ingestion:ro
       - ./data/raw/synthea:/usr/app/data/raw/synthea:ro
-    
-    environment: 
+
+    environment:
       POSTGRES_HOST: postgres
       POSTGRES_PORT: 5432
       POSTGRES_DB: healthcare_analytics
       POSTGRES_USER: healthcare
-      POSTGRES_PASSSWORD: healthcare
+      POSTGRES_PASSWORD: healthcare
 
-    depends_on: 
+    depends_on:
       postgres:
         condition: service_healthy
+
+  airflow-init:
+    build:
+      context: .
+      dockerfile: Dockerfile.airflow
+
+    user: "0:0"
+
+    environment:
+      AIRFLOW__CORE__EXECUTOR: LocalExecutor
+      AIRFLOW__CORE__LOAD_EXAMPLES: "false"
+      AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION: "true"
+      AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://healthcare:healthcare@postgres:5432/airflow
+
+    volumes:
+      - ./airflow/dags:/opt/airflow/dags
+      - ./airflow/logs:/opt/airflow/logs
+      - /Users/samisahami/healthcare-claims-intelligence:/Users/samisahami/healthcare-claims-intelligence
+      - /var/run/docker.sock:/var/run/docker.sock
+
+    working_dir: /Users/samisahami/healthcare-claims-intelligence
+
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+    command: >
+      bash -c "
+      airflow db migrate &&
+      airflow users create
+      --username admin
+      --password admin
+      --firstname Healthcare
+      --lastname Admin
+      --role Admin
+      --email admin@example.com
+      "
+
+  airflow-webserver:
+    build:
+      context: .
+      dockerfile: Dockerfile.airflow
+
+    environment:
+      AIRFLOW__CORE__EXECUTOR: LocalExecutor
+      AIRFLOW__CORE__LOAD_EXAMPLES: "false"
+      AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION: "true"
+      AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://healthcare:healthcare@postgres:5432/airflow
+      AIRFLOW__WEBSERVER__SECRET_KEY: "healthcare-airflow-secret-key"
+
+    ports:
+      - "8081:8080"
+
+    volumes:
+      - ./airflow/dags:/opt/airflow/dags
+      - ./airflow/logs:/opt/airflow/logs
+      - /Users/samisahami/healthcare-claims-intelligence:/Users/samisahami/healthcare-claims-intelligence
+      - /var/run/docker.sock:/var/run/docker.sock
+
+    working_dir: /Users/samisahami/healthcare-claims-intelligence
+
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+    command: airflow webserver
+
+  airflow-scheduler:
+    build:
+      context: .
+      dockerfile: Dockerfile.airflow
+
+    environment:
+      AIRFLOW__CORE__EXECUTOR: LocalExecutor
+      AIRFLOW__CORE__LOAD_EXAMPLES: "false"
+      AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION: "true"
+      AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://healthcare:healthcare@postgres:5432/airflow
+      AIRFLOW__WEBSERVER__SECRET_KEY: "healthcare-airflow-secret-key"
+
+    volumes:
+      - ./airflow/dags:/opt/airflow/dags
+      - ./airflow/logs:/opt/airflow/logs
+      - /Users/samisahami/healthcare-claims-intelligence:/Users/samisahami/healthcare-claims-intelligence
+      - /var/run/docker.sock:/var/run/docker.sock
+
+    working_dir: /Users/samisahami/healthcare-claims-intelligence
+
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+    command: airflow scheduler
 
 volumes:
   postgres_data:
