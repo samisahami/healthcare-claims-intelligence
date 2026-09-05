@@ -42,7 +42,7 @@ services:
 
     command:
       - "-c"
-      - "opt/synthea/synthea-local.properties"
+      - "synthea-local.properties"
 
   ingestion:
     build:
