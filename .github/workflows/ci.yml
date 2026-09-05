@@ -44,6 +44,9 @@ jobs:
       # Load raw Synthea CSV files into PostgreSQL
       - name: Ingest raw data
         run: docker compose run --rm ingestion
+      
+      - name: Install dbt dependencies
+        run: docker compose run --rm dbt deps
 
       # Build dbt models and execute dbt tests
       - name: Run dbt build
