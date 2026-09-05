@@ -1,5 +1,7 @@
 # Healthcare Claims Intelligence Platform
 
+[![Healthcare Analytics CI](https://github.com/samisahami/healthcare-claims-intelligence/actions/workflows/ci.yml/badge.svg)](https://github.com/samisahami/healthcare-claims-intelligence/actions/workflows/ci.yml)
+
 An end-to-end healthcare analytics engineering platform that transforms synthetic claims and eligibility data into tested, analytics-ready datasets using **Python, PostgreSQL, dbt, Apache Airflow, Docker, and GitHub Actions**.
 
 The project demonstrates a production-style analytics workflow spanning data generation, ingestion, dimensional transformation, healthcare business logic, orchestration, testing, lineage, and continuous integration.
